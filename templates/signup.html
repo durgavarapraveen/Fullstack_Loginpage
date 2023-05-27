@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="StyleSheet" href="{% static 'signup.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/eat-circle-orange-512.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/17305c1313.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant">
+    <title>Epicure - Sign up</title>
+</head>
+<body>
+    <div class="container">
+        <div class="Logo-container">
+            <img src="https://cdn1.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/eat-circle-orange-512.png" alt="Logo" />
+            <p>Epicure</p>
+        </div>
+        <div class="info-container">
+            {% for message in messages %}
+            <h5>message</h5>
+            {% endfor %}
+            <p class="p">Create Account</p>
+            <form method="POST" action="signup">
+                {% csrf_token %}
+                <label for="username" id="name-label">Your name</label>
+                <input name="username" id="name-input" class="input" placeholder="First and Last name" type="text" required/>
+                {% comment %} <label for="number" id="number-label" class="number-label">Mobile number</label>
+                <input name="number" id="number-input" placeholder="Mobile number" type="tel" class="mobile-input" required/> {% endcomment %}
+                <label for="email" id="email-label" class="email-label">Email</label>
+                <input name="email" id="email-input" class="email-input" placeholder="Email..." type="email" required/>
+                <label for="password" id="pass-label" class="pass-label">Password</label>
+                <div class="pass-box">
+                    <input name="password" id="pass-input" placeholder="At least 6 characters" type="password" class="pass-input" required/>
+                    <i class="fa-sharp fa-solid fa-eye icon-1" id="icon-1" onclick="passwordVisibility()"></i>
+                </div>
+               <div class="password-box">
+                    <i class="fa-solid fa-exclamation"></i>
+                    <p>Passwords must be at least 6 characters.</p>
+               </div>
+                <button type="submit">continue</button>
+            </form>
+        </div>
+        
+        <div class="wrapper">
+            <div class="divider div-transparent div-dot"></div>
+        </div>
+        <p>© 2023, Epicure, Inc. or its affiliates</p>
+    </div>
+    </div>
+</body>
+</html>

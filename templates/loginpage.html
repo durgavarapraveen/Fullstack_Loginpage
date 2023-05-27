@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewreport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'loginpage.css' %}">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="https://kit.fontawesome.com/9fa9e4c93e.js" crossorigin="anonymous"></script>
+        <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title>LOGIN FORM</title>
+        <link rel="icon" type="image/x-icon" href="https://i.imgur.com/VgqmtGg.jpeg">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="container-login">
+                <div class="wrap-login">
+
+                    <div class="login-pic">
+                        <img src="https://i.imgur.com/qsHnWK2.jpeg" alt="img">
+                    </div>
+                    <form class="login-form" method='POST' action=''>
+                        {% csrf_token %}
+                        <span class="login-form-title">Login</span>
+                        <div class="wrap-input">
+                            <input type="text" class="input" name="email" placeholder="Email" required>
+                            <span class="focus-input"></span>
+                            <span class="symbol-input">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        {% for message in messages %}
+                        <p>{{message}}</p>
+                        {% endfor %}
+                        <div class="wrap-input">
+                            <input type="password" class="input" name="password" placeholder="Password" required>
+                            <span class="focus-input"></span>
+                            <span class="symbol-input">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </div>
+                        <div class="login-form-btn-container">
+                            <button class="login-form-btn" type='submit'>Login</button>
+                        </div>
+                        <div class="text-center">
+                            <span class="txt1">Forgot</span>
+                            <a href="#" class="txt2" >Username/Password ?</a>
+                        </div>
+                        <div class="text-center">
+                            
+                            <a href="signup" class="txt2" >Create your Account<i class="fa fa-long"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
